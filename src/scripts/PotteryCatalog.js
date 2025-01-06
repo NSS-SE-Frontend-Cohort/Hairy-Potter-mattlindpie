@@ -1,5 +1,5 @@
 
-const catalog = [] 
+const catalog = []
 
 export const toSellOrNotToSell = (piece) => {
     if (piece.weight >= 6 && piece.cracked === false) {
@@ -19,6 +19,5 @@ export const toSellOrNotToSell = (piece) => {
 }
 
 export const usePottery = () => {
-    let catalogCopy = JSON.parse(JSON.stringify(catalog))
-    return catalogCopy
+    return catalog
 }

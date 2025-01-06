@@ -120,12 +120,19 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+   > In `index.html`, we create a container for the HTML that the code will be producing called `#potteryList`.\
+   `main.js` calls  `makePottery` which returns an object representing an unfired piece of pottery with the elements `shape`, `height`, `weight` and `id`.\
+   `main.js` then calls `firePottery`, passing in an unfired piece and a temperature, which returns an object representing a fired piece with its original elements plus a boolean called `cracked`\
+   Each fired piece is then passed into the function `toSellOrNotToSell`. If the value of `cracked` is false, the piece is assigned a price based on its weight and added to the `catalog` variable.\
+   `main.js` calls its final function `PotteryList`. `PotteryList` makes a variable that stores the `catalog` which is retrieved with the function `usePottery`. Each piece is then mapped to an HTML template, storing its variables in the correct place. The function then returns the HTML to `main.js`.\
+   `main.js` then selects the container `#potteryList` from `index.html` and fills it with the returned value from `PotteryList`\
+   The HTML from `index.html` is then displayed on the webpage.
+
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > [Loom Video 1](https://www.loom.com/share/b02f135ef5a84efc90ef454acc6958df)
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+   > While one could technically put all the functional code in one module, and then only have to use one import statement to `main.js`, it could create problems down the line if we wanted to use only one piece of that functionality for another purpose. It would also create problems with readability should another developer take over maintenance of the code.
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+   > Cracked pottery should now be given a price. To do this, we could add a new if statement in `PotteryCatalog.js` that prices the pieces at $2.50 if `cracked === true` and adds it to the catalog. We could also change the value of the piece's shape to have the word `cracked` so that the state of the piece is obvious to viewers.
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > [Loom Video 2](https://www.loom.com/share/a03ae1fd122f4bce8cc057ec33096a27)
